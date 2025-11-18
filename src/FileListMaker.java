@@ -32,7 +32,7 @@ public class FileListMaker {
                         System.out.println("Goodbye!");
                         return;
                     }
-                    default -> System.out.println("Invalid option. Try again.");
+                    default -> System.out.println("Invalid entry. Please try again.");
                 }
             } catch (IOException e) {
                 System.out.println("File error: " + e.getMessage());
@@ -75,7 +75,7 @@ public class FileListMaker {
 
     private static void insertItem() {
         viewList();
-        System.out.print("Enter index to insert at: ");
+        System.out.print("Enter index to insert: ");
         int index = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter item to insert: ");
         String item = scanner.nextLine();
@@ -117,7 +117,7 @@ public class FileListMaker {
 
     private static void openFile() throws IOException {
         if (needsToBeSaved) {
-            System.out.print("Unsaved changes. Save current list before opening new file? (Y/N): ");
+            System.out.print("Unsaved changes. Would you like to save current list before opening new file? (Y/N): ");
             if (scanner.nextLine().trim().equalsIgnoreCase("Y")) {
                 saveFile();
             }
@@ -148,7 +148,7 @@ public class FileListMaker {
     }
 
     private static void promptToSaveBeforeExit() throws IOException {
-        System.out.print("You have unsaved changes. Save before quitting? (Y/N): ");
+        System.out.print("You have unsaved changes. Would you like to save before quitting? (Y/N): ");
         if (scanner.nextLine().trim().equalsIgnoreCase("Y")) {
             saveFile();
         }
